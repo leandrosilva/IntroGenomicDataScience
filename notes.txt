@@ -1,0 +1,8 @@
+5'  -->   3'
+AGTCGCATAGT
+TCAGCGTATCA
+
+A-T
+G-C
+T-A
+C-G
