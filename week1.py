@@ -52,37 +52,6 @@ def PatternMatching(Pattern, Genome):
 
     return kmerPositions
 
-def TestPatternCount():
-    print("\nTest >> PatterCount")
-
-    output = PatternCount("GCGCG", "GCG")
-    if (output == 2): print("Test 0: OK")
-    else: print("Test 0: FAIL")
-
-    output = PatternCount("ACGTACGTACGT", "CG")
-    if (output == 3): print("Test 1: OK")
-    else: print("Test 1: FAIL")
-
-    output = PatternCount("AAAGAGTGTCTGATAGCAGCTTCTGAACTGGTTACCTGCCGTGAGTAAATTAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAGACAGATAATAATTACAGAGTACACAACATCCAT", "AAA")
-    if (output == 4): print("Test 2: OK")
-    else: print("Test 2: FAIL")
-
-    output = PatternCount("AGCGTGCCGAAATATGCCGCCAGACCTGCTGCGGTGGCCTCGCCGACTTCACGGATGCCAAGTGCATAGAGGAAGCGAGCAAAGGTGGTTTCTTTCGCTTTATCCAGCGCGTTAACCACGTTCTGTGCCGACTTT", "TTT")
-    if (output == 4): print("Test 3: OK")
-    else: print("Test 3: FAIL")
-
-    output = PatternCount("GGACTTACTGACGTACG", "ACT")
-    if (output == 2): print("Test 4: OK")
-    else: print("Test 4: FAIL")
-
-    output = PatternCount("ATCCGATCCCATGCCCATG", "CC")
-    if (output == 5): print("Test 5: OK")
-    else: print("Test 5: FAIL")
-    
-    output = PatternCount("CTGTTTTTGATCCATGATATGTTATCTCTCCGTCATCAGAAGAACAGTGACGGATCGCCCTCTCTCTTGGTCAGGCGACCGTTTGCCATAATGCCCATGCTTTCCAGCCAGCTCTCAAACTCCGGTGACTCGCGCAGGTTGAGTA", "CTC")
-    if (output == 9): print("Test 6: OK")
-    else: print("Test 6: FAIL")
-
 def TestFrequentWords():
     print("\nTest >> FrequentWords")
 
@@ -105,6 +74,14 @@ def TestFrequentWords():
     output = FrequentWords("CCAGCGGGGGTTGATGCTCTGGGGGTCACAAGATTGCATTTTTATGGGGTTGCAAAAATGTTTTTTACGGCAGATTCATTTAAAATGCCCACTGGCTGGAGACATAGCCCGGATGCGCGTCTTTTACAACGTATTGCGGGGTAAAATCGTAGATGTTTTAAAATAGGCGTAAC", 5)
     if (len(output) == 3) and ("AAAAT" in output and "GGGGT" in output and "TTTTA" in output): print("Test 4: OK")
     else: print("Test 4: FAIL")
+
+def TestFrequentWordsForVibrioCholerae():
+    print("\nTest >> FrequentWords for Vibrio cholerae bacteria")
+    
+    with open("Vibrio_cholerae.txt", "r") as genomeFile:
+        frequentPatterns = FrequentWords(genomeFile.readline(), 9)
+
+    print("Patterns:", frequentPatterns)
 
 def TestReverseComplement():
     print("\nTest >> ReverseComplement")
@@ -141,16 +118,16 @@ def TestPatternMatching():
     else: print("Test 4: FAIL")
 
 def TestPatternMatchingForVibrioCholerae():
-    print("\nTest >> PatternMatchingForVibrioCholerae")
+    print("\nTest >> PatternMatching for Vibrio cholerae bacteria")
     
-    genome = open("Vibrio_cholerae.txt", "r").readline()
-    kmerPositions = PatternMatching("CTTGATCAT", genome)
+    with open("Vibrio_cholerae.txt", "r") as genomeFile:
+        kmerPositions = PatternMatching("CTTGATCAT", genomeFile.readline())
 
     print("Starting positions:", kmerPositions)
     
 if __name__ == '__main__':
-    TestPatternCount()
     TestFrequentWords()
+    ### Forget it --> TestFrequentWordsForVibrioCholerae()
     TestReverseComplement()
     TestPatternMatching()
     TestPatternMatchingForVibrioCholerae()
