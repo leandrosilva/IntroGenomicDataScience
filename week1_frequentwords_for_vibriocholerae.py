@@ -17,10 +17,10 @@ def FrequentWordsWithLog(Text, k):
         else:
             print("i:", i, ", pattern:", pattern, " <DONE>")
 
-    frequentPatterns = []
+    frequentPatterns = {}
     for kmer in kmerCounts:
         if kmerCounts[kmer] == maxCount:
-            frequentPatterns.append(kmer)
+            frequentPatterns[kmer] = maxCount
     
     return frequentPatterns
 
