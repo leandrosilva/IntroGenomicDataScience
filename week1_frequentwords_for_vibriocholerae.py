@@ -15,7 +15,7 @@ def FrequentWordsWithLog(Text, k):
             if count > maxCount:
                 maxCount = count
         else:
-            print("i:", i, ", pattern:", pattern, " <DONE>")
+            print("i:", i, ", pattern:", pattern, "<DONE>")
 
     frequentPatterns = {}
     for kmer in kmerCounts:

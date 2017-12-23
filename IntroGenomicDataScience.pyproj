@@ -27,6 +27,9 @@
     </Compile>
     <Compile Include="main.py" />
     <Compile Include="week1.py" />
+    <Compile Include="week1_clump_finding_for_e_coli.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="week1_clump_finding_test.py" />
     <Compile Include="week1_frequentwords_for_vibriocholerae.py">
       <SubType>Code</SubType>
