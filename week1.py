@@ -83,12 +83,15 @@ def ClumpFinding(Genome, k, L, t):
     kmers = []
     for i in range(genomeLenth - L + 1):
         genomeWindow = Genome[i : i + L]
-        kmerCounted = []
+        kmerCounter = {}
         for z in range(L - k + 1):
             kmer = genomeWindow[z : z + k]
-            if not kmer in kmers and not kmer in kmerCounted:
-                kmerCount = PatternCount(genomeWindow, kmer)
-                kmerCounted = kmer
+            if not kmer in kmers:
+                if kmer in kmerCounter:
+                    kmerCount = kmerCounter[kmer] + 1
+                else:
+                    kmerCount = 1
+                kmerCounter[kmer] = kmerCount
                 if kmerCount == t:
                     kmers.append(kmer)
 
