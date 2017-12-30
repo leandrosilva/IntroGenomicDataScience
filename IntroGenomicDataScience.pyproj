@@ -44,6 +44,12 @@
     <Compile Include="week1_reversecomplement_test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="week2.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="week2_minimum_skew_test.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="notes.txt" />
